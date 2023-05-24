@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <!--<a class="navbar-brand" href="/">Stockmgmt</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <!--<li class="nav-item">
+          <a class="nav-link" href="/list_item">List of Items</a>
+        </li>
+      -->
+
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+        <li><a href="/accounts/logout"><button class="btn btn-danger">{{ user }} | Logout</button></a></li>
+        {% else %}
+        {% if request.user.is_unauthenticated %}
+        <li><a href="/accounts/login">Login</a></li>
+        {% endif  %}
+        {% endif %}
+    </ul>
+    </div>
+</nav>  
+
+
+  <a href="#"><div id="version-display" data-toggle="modal" data-target="#myModal">SMIS Ver: 1.0</div></a>
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+            <div class="modal-content">
+              
+                <div class="modal-header">
+                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                    <h4 class="modal-title">System Information</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="dev-info">
+                      <p class=""><b>STOCK MANAGEMENT INFORMATION SYSTEMS</b></p>
+                      <p>VERSION: 0.1.0</p><br>
+
+                      <p class="modal-header">DEVELOPER:</p>
+                      <p>Ken Kariuki</p>
+                      <p>+254 769232796</p>
+                      <p><img class="pro-img" src="/static/img/pro.jpg" alt="Developer Logo"></p>             
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+      </div>
+  </div>

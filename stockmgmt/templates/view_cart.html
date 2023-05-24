@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>View Cart</title>
+	<link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+
+</head>
+<body>
+	<h1>View Cart</h1>
+	{% if cart_items %}
+	<div class="col-sm-5">
+
+		<div class="display-table">
+		<table class="table">
+		<thead>
+			<tr>
+				<th>Count</th>
+				<th>Product Name</th>
+				<th>Barcode</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in cart_items %}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{ item.product_name }}</td>
+				<td>{{ item.barcode }}</td>
+				<td>{{ item.price }}</td>
+				<td>{{ item.quantity }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+	</div>
+	
+	
+	<a href="#" class="btn btn-primary">Finalize Sale</a>
+	{% else %}
+	<p>Cart is empty</p>
+	{% endif %}
+</body>
+</html>

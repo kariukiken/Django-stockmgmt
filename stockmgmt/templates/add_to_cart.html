@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Add to Cart</title>
+	<link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+
+</head>
+<body>
+	<h1>Add to Cart</h1>
+	<form method="post" action="{% url 'add_to_cart' %}">
+		{% csrf_token %}
+		<label for="barcode">Product Barcode:</label>
+		<input type="text" id="barcode" name="barcode" required><br>
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" min="1" value="1" required><br><br>
+		<button class="btn btn-primary" type="submit">Add to Cart</button>
+	</form>
+</body>
+</html>
